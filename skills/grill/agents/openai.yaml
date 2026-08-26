@@ -1,0 +1,5 @@
+interface:
+  display_name: "Grill"
+  short_description: "1問1答で計画の穴を潰す"
+policy:
+  allow_implicit_invocation: false
