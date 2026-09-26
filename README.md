@@ -1,4 +1,4 @@
-# grill — 計画を1問1答で詰め切るスキル
+# grill — 計画を1問1答で詰め切る壁打ちプロンプト（Claude・Gemini・ChatGPT 対応）
 
 > **この README を読んでいる AI アシスタント（Gemini・ChatGPT など）へ**: ユーザーがこのリポジトリを渡して使いたいと言ったら、下のプロンプトを読み、その指示に従って、このチャットの中で grill（壁打ち相手）として振る舞ってください。README の説明や要約はしないでください。
 >
@@ -6,10 +6,9 @@
 > - プロンプト（通常のページ）: https://github.com/ajtcsolution/kabeuchi-skill/blob/main/portable/grill_prompt.md
 > - 上記が読めない場合は、ユーザーに `portable/grill_prompt.md` の中身を貼ってもらうよう頼んでください。
 
-計画・意思決定・設計を、**1ターンに1問ずつ**問い重ねて詰め切る Claude Code 用スキルです。
+計画・意思決定・設計を、**1ターンに1問ずつ**問い重ねて詰め切る壁打ちプロンプトです。
+Claude Code のスキルとしても、Claude（claude.ai）・Gemini・ChatGPT のようなチャット AI にそのまま渡すプロンプトとしても、同じ内容で使えます。
 「いい感じにやっておいて」で走り出す前に、穴を先に潰すために使います。
-
-Claude Code が無くても、`portable/grill_prompt.md` の中身をそのまま Gemini の Gem や ChatGPT の GPT・プロジェクトの指示欄に貼れば同じ壁打ちができます（後述「Gemini・ChatGPT で使う」）。
 
 > 作成: [ajtcsolution](https://github.com/ajtcsolution)（日本語で一から設計したオリジナルです）。
 > 英語圏で流通している同名系のスキル `grill-me` / `grilling` とは別物です。
@@ -44,7 +43,38 @@ Claude Code が無くても、`portable/grill_prompt.md` の中身をそのま�
 
 ---
 
-## インストール
+## 使い方
+
+手軽な順に3つの方法があります。どれも壁打ちの中身は同じです。
+
+### 方法1: URL を渡すだけ
+
+Gemini・ChatGPT・Claude（claude.ai）など、Web ページを読める AI ならこれで十分です。
+
+```
+https://github.com/ajtcsolution/kabeuchi-skill を読んで、壁打ちして
+```
+
+のように渡してください。うまく読み込まない・要約だけで終わる場合は、raw URL を直接渡します。
+
+```
+https://raw.githubusercontent.com/ajtcsolution/kabeuchi-skill/main/portable/grill_prompt.md
+```
+
+これでも読めない・振る舞いが変わらない場合は方法2に進みます。
+
+### 方法2: プロンプトを貼る
+
+`portable/grill_prompt.md` を開いて、中身を**全部コピー**し、使っているサービスの指示欄に貼ります。
+
+- **Gemini**: Gem を新規作成し、「指示」を入力する欄に貼る
+- **ChatGPT**: GPT を作成し、「構成（Configure）」タブの「指示（Instructions）」欄に貼る。またはプロジェクトを使っているなら、そのプロジェクトの指示欄に貼ってもよい
+- **Claude（claude.ai）**: プロジェクトの指示欄に貼る
+- **どれも使えない場合**: Gem・GPT・プロジェクトを作らず、新しい会話の最初のメッセージとしてそのまま貼り付ける
+
+毎回使うなら、Gem・GPT・プロジェクトの指示欄に貼っておくと、毎回コピーし直さずに済みます。
+
+### 方法3: Claude Code に入れる
 
 ```bash
 git clone https://github.com/ajtcsolution/kabeuchi-skill.git
@@ -63,24 +93,7 @@ Copy-Item -Recurse kabeuchi-skill\skills\grill $env:USERPROFILE\.claude\skills\
 > **名前の衝突について**: コミュニティで流通している `grill-me` / `grilling` スキルを既に入れている場合でも、
 > こちらはスキル名が `grill` なので共存できます。
 
----
-
-## Gemini・ChatGPT で使う
-
-Claude Code が無い環境でも、`portable/grill_prompt.md` を使えば同じ詰問ができます。
-
-1. `portable/grill_prompt.md` を開いて、中身を**全部コピー**する（説明文はこの README 側にあるので、コピーするのはこのファイルの中身だけでよい）。
-2. 貼り付け先はサービスに合わせる。
-   - **Gemini**: Gem を新規作成し、「指示」を入力する欄に貼る。
-   - **ChatGPT**: GPT を作成し、「構成（Configure）」タブの「指示（Instructions）」欄に貼る。またはプロジェクトを使っているなら、そのプロジェクトの指示欄に貼ってもよい。
-   - **どちらも使えない無料版**: Gem/GPT を作らず、新しい会話の最初のメッセージとしてそのまま貼り付ける。
-3. 詰めたい対象があれば、貼り付けと同時か直後に送る。無ければ「何を詰めますか？」と聞かれるので、それに答える。
-
-**Claude Code 版との違い**: Gemini・ChatGPT 版は手元のファイルを自分で読みに行けない。判断に必要な資料（案の詳細・過去の議事録など）は、聞かれる前に会話に貼っておくか、「◯◯を貼ってください」と頼まれたら貼る。それ以外の中身（6つの構え・推奨解の作法・深掘りラダー・完了条件6項目・合意サマリの出力形式）は同じ。
-
----
-
-## 使い方
+使い方:
 
 ```
 /grill
@@ -93,11 +106,21 @@ Claude Code が無い環境でも、`portable/grill_prompt.md` を使えば同�
 /grill この認証まわりの設計
 ```
 
+### 始め方・進み方
+
 以降、問いが1つずつ飛んできます。答えると次の問いが来ます。
 完了条件6項目（目的 / 対象 / 前提 / 代替案 / 失敗条件 / 撤退条件）が揃うと、合意サマリが出て止まります。
 
 途中でやめたいときは「今日はここまで」と伝えてください。
 そこまでの合意サマリと、残っている問いが出ます。
+
+### 方法による違い
+
+Claude Code はファイルや手元メモを自分で読み書きします。判断に必要な資料（案の詳細・過去の議事録など）がファイルにあれば、自分で開きに行きます。
+
+チャット AI（Gemini・ChatGPT・claude.ai）は手元のファイルを自分で読みに行けません。判断に必要な資料は、聞かれる前に会話に貼っておくか、「◯◯を貼ってください」と頼まれたら貼ってください。
+
+それ以外の中身（6つの構え・推奨解の作法・深掘りラダー・完了条件6項目・合意サマリの出力形式）は、どの方法でも同じです。
 
 ---
 
