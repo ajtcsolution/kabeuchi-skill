@@ -3,6 +3,9 @@
 計画・意思決定・設計を、**1ターンに1問ずつ**問い重ねて詰め切る Claude Code 用スキルです。
 「いい感じにやっておいて」で走り出す前に、穴を先に潰すために使います。
 
+> 作成: [ajtcsolution](https://github.com/ajtcsolution)（日本語で一から設計したオリジナルです）。
+> 英語圏で流通している同名系のスキル `grill-me` / `grilling` とは別物です。
+
 **このスキルは実行しません。** 合意に達するまで、問うだけです。
 
 ---
@@ -36,15 +39,15 @@
 ## インストール
 
 ```bash
-git clone https://github.com/ajtcsolution/grill-me-skill.git
-cp -r grill-me-skill/skills/grill ~/.claude/skills/
+git clone https://github.com/ajtcsolution/kabeuchi-skill.git
+cp -r kabeuchi-skill/skills/grill ~/.claude/skills/
 ```
 
 Windows（PowerShell）:
 
 ```powershell
-git clone https://github.com/ajtcsolution/grill-me-skill.git
-Copy-Item -Recurse grill-me-skill\skills\grill $env:USERPROFILE\.claude\skills\
+git clone https://github.com/ajtcsolution/kabeuchi-skill.git
+Copy-Item -Recurse kabeuchi-skill\skills\grill $env:USERPROFILE\.claude\skills\
 ```
 
 プロジェクト単位で使う場合は `~/.claude/skills/` の代わりに `<プロジェクト>/.claude/skills/` に置きます。
@@ -88,12 +91,11 @@ Copy-Item -Recurse grill-me-skill\skills\grill $env:USERPROFILE\.claude\skills\
 
 ---
 
-## 謝辞・出典
+## 作者
 
-このスキルの出発点は、コミュニティで広く共有されている `grill-me` / `grilling` スキル
-（"Interview me relentlessly..." で始まる英語プロンプト）です。原典の作者は特定できていません。
+[ajtcsolution](https://github.com/ajtcsolution) が作成しました。
 
-本リポジトリはそれを日本語で書き直し、以下を独自に追加したものです。
+独自に設計した点は次のとおりです。
 
 - 推奨解（たたき台仮説）を必ず添える作法と、種出しの問いには添えないという例外
 - 「人ではなく案を詰める」トーン規定
@@ -101,7 +103,7 @@ Copy-Item -Recurse grill-me-skill\skills\grill $env:USERPROFILE\.claude\skills\
 - 深掘りラダーの分岐ツリー化
 - 合意サマリと「詰め切れなかった点」の出力形式
 
-日本語での運用知見は、AJTC株式会社の起業壁打ちスキル `shisaku` の実運用から取り出しています。
+日本語での運用知見は、起業壁打ちスキル `shisaku` の実運用から取り出しています。
 関連: [ajtcsolution/shisaku-skill](https://github.com/ajtcsolution/shisaku-skill)
 
 ---
